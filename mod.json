@@ -1,0 +1,13 @@
+{
+    "id": "de.tosox.personal_spotted_alert",
+    "version": "1.0.0",
+    "name": "Personal Spotted Alert",
+    "description": "Shows an icon next to the marker of each enemy you personally detect",
+    "author": "Tosox",
+    "website": "https://github.com/Tosox/wot-personal-spotted-alert",
+    "extra_files": [
+        { "src": "README.md", "dst": "README.md" },
+        { "src": "CHANGELOG.md", "dst": "CHANGELOG.md" },
+        { "src": "LICENSE", "dst": "LICENSE" }
+    ]
+}
