@@ -10,9 +10,8 @@ package
    import de.tosox.personal_spotted_alert.SpottedBulb;
 
    // Root of the markers movie in place of whatever markers app the battle
-   // would have started (vanilla or another mod's), which it loads as its only
-   // child. Both share one ApplicationDomain, so VehicleMarker.insertSymbol
-   // can create SpottedBulb by name
+   // would have started, which it loads as its only child. Both share one ApplicationDomain,
+   // so VehicleMarker.insertSymbol can create SpottedBulb by name
    public class PersonalSpottedAlertRoot extends Sprite
    {
       // Loaded on our own if Python never says which app to wrap

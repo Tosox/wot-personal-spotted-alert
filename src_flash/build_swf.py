@@ -48,17 +48,29 @@ def main():
     env = dict(os.environ)
     env['PLAYERGLOBAL_HOME'] = playerglobal_home
 
-    # The library only touches game classes by name at runtime, so unlike the
-    # lobby/battle hooks it needs no stub swc to compile against
-    print('mxmlc: markers root swf')
-    subprocess.check_call(flex_cmd(flex, 'mxmlc', [
+    mxmlc_args = [
         main_as,
         '-source-path=' + os.path.dirname(main_as),
         '-static-link-runtime-shared-libraries=true',
         '-target-player=' + TARGET_PLAYER,
         '-swf-version=' + str(SWF_VERSION),
         '-output', output,
-    ]), env=env)
+    ]
+
+    steps = 2 if 'stubs' in flash else 1
+    if 'stubs' in flash:
+        stubs = os.path.join(ROOT, flash['stubs'])
+        stub_swc = os.path.join(ROOT, flash['stub_swc'])
+
+        print('[1/2] compc: external stub swc')
+        subprocess.check_call(flex_cmd(flex, 'compc', [
+            '-source-path', stubs, '-include-sources', stubs,
+            '-target-player=' + TARGET_PLAYER, '-output', stub_swc,
+        ]), env=env)
+        mxmlc_args.append('-external-library-path+=' + stub_swc)
+
+    print('[%d/%d] mxmlc: hook swf' % (steps, steps))
+    subprocess.check_call(flex_cmd(flex, 'mxmlc', mxmlc_args), env=env)
 
     print('built %s (%d bytes)' % (output, os.path.getsize(output)))
 

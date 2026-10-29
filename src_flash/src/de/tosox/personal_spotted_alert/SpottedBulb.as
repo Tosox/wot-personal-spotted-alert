@@ -18,7 +18,7 @@ package de.tosox.personal_spotted_alert
       // Lives in battleVehicleMarkers.swf, which the markers movie always loads
       private static const BULB_CLASS:String = "VehicleTargetDesignatorUI";
 
-      // Markers created by XVM, whose health bar is its own (see getXvmBarBounds)
+      // Markers created by XVM, whose health bar is its own
       private static const XVM_MARKER_CLASS:String = "XvmVehicleMarker";
 
       private static const SPRITE_CLASS:String = "flash.display::Sprite";
@@ -155,7 +155,7 @@ package de.tosox.personal_spotted_alert
          return bounds;
       }
 
-      // The health bar's own bounds also cover its hit splash and shine/glitch
+      // The health bar's own bounds also cover its hit splash and shine
       // effects, which come and go, so they would drag the bulb around. Its bar
       // always starts at local x 0, and only the bar clip itself is measured
       private function getVanillaBarBounds() : Rectangle
@@ -172,7 +172,6 @@ package de.tosox.personal_spotted_alert
          }
          catch(e:Error)
          {
-            bar = null;
          }
          if(bar == null)
          {
