@@ -21,8 +21,8 @@ You can check out the latest changes in [`CHANGELOG.md`](CHANGELOG.md).
 
 ## 🎥 Preview
 
-<!-- TODO: add preview gif -->
-<img src="readme-res/preview.gif" alt="Preview" width="700"/>
+| [![](https://ytcards.demolab.com/?id=-M_CAt8XpPg&title=Personal+Spotted+Alert+Demo&timestamp=1794074993&width=700 "Personal Spotted Alert Demo")](https://youtu.be/-M_CAt8XpPg) |
+|---|
 
 ## 🛠️ Build from source
 
