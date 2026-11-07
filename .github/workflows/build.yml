@@ -26,6 +26,9 @@ jobs:
           chmod +x "$RUNNER_TEMP/python27"
           echo "PYTHON27=$RUNNER_TEMP/python27" >> "$GITHUB_ENV"
 
+      - name: Setup Apache Flex SDK
+        uses: ./.github/actions/setup-flex
+
       - name: Build .wotmod
         run: python build.py
 
